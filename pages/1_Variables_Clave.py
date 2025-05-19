@@ -48,6 +48,12 @@ with tabs[1]:
 with tabs[2]:
     st.subheader("📋 Visualización rápida de variables clave")
 
+    if "Date" in filtered_df.columns and "Total" in filtered_df.columns:
+        st.markdown("#### 📆 Evolución Temporal de Ventas")
+        df_time = filtered_df.groupby("Date")["Total"].sum().reset_index()
+        fig_time = px.line(df_time, x="Date", y="Total", title="Ventas Totales a lo Largo del Tiempo")
+        st.plotly_chart(fig_time, use_container_width=True)
+
     if "Branch" in filtered_df.columns:
         st.markdown("#### 🏪 Ventas por Sucursal")
         fig_branch = px.bar(filtered_df.groupby("Branch")["Total"].sum().reset_index(), 

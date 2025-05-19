@@ -1,4 +1,3 @@
-
 import streamlit as st
 import plotly.express as px
 import pandas as pd
@@ -33,16 +32,19 @@ tabs = st.tabs(["🔄 Correlación", "📊 Scree Plot", "🧭 PCA 2D", "🌐 PCA
 # Tab 1 - Correlation heatmap
 with tabs[0]:
     st.subheader("🔄 Correlación entre Variables Numéricas")
+    st.markdown("Se analiza la relación lineal entre las variables numéricas más relevantes.")
     if not numeric.empty:
         fig_corr, ax = plt.subplots()
         sns.heatmap(numeric.corr(), annot=True, fmt=".2f", cmap="Blues", ax=ax)
         st.pyplot(fig_corr)
+        st.markdown("> 📌 **Interpretación**: Este mapa ayuda a detectar relaciones fuertes como entre `cogs` y `gross income`. Variables muy correlacionadas pueden ser redundantes en modelos predictivos.")
     else:
         st.warning("No hay suficientes variables numéricas para calcular correlaciones.")
 
 # Tab 2 - Scree Plot
 with tabs[1]:
     st.subheader("📊 Varianza Explicada por Componentes (Scree Plot)")
+    st.markdown("El scree plot permite identificar cuántas dimensiones (componentes) son necesarias para representar los datos con poca pérdida de información.")
     if scaled is not None:
         pca_expl = PCA(n_components=min(10, scaled.shape[1]))
         pca_expl.fit(scaled)
@@ -51,12 +53,14 @@ with tabs[1]:
                            labels={'x': 'Componentes', 'y': 'Varianza (%)'},
                            title="Porcentaje de Varianza Explicada por Componentes")
         st.plotly_chart(fig_scree, use_container_width=True)
+        st.markdown("> 📌 **Interpretación**: Las primeras dos o tres componentes explican gran parte de la variabilidad, lo que justifica su uso en visualizaciones reducidas.")
     else:
         st.warning("No se pudo calcular la varianza explicada.")
 
 # Tab 3 - PCA 2D
 with tabs[2]:
     st.subheader("🧭 Análisis PCA en 2D")
+    st.markdown("Reducción de dimensionalidad a 2 componentes para observar agrupaciones visuales por categoría.")
     if scaled is not None:
         pca2 = PCA(n_components=2)
         components2 = pca2.fit_transform(scaled)
@@ -66,12 +70,14 @@ with tabs[2]:
         fig2d = px.scatter(pca_df, x="PCA1", y="PCA2", color=category_col,
                            title="Proyección PCA 2D por Categoría")
         st.plotly_chart(fig2d, use_container_width=True)
+        st.markdown("> 📌 **Interpretación**: Las categorías tienden a agruparse en regiones del espacio, lo cual sugiere diferencias en comportamiento según tipo de producto.")
     else:
         st.warning("No hay suficientes columnas numéricas para aplicar PCA.")
 
 # Tab 4 - PCA 3D
 with tabs[3]:
     st.subheader("🌐 Visualización PCA en 3D")
+    st.markdown("Representación tridimensional de las tres principales componentes principales.")
     if scaled is not None:
         pca3 = PCA(n_components=3).fit_transform(scaled)
         pca3_df = pd.DataFrame(pca3, columns=["PC1", "PC2", "PC3"])
@@ -80,12 +86,14 @@ with tabs[3]:
         fig3d = px.scatter_3d(pca3_df, x="PC1", y="PC2", z="PC3", color="Branch",
                               title="Proyección 3D por Sucursal")
         st.plotly_chart(fig3d, use_container_width=True)
+        st.markdown("> 📌 **Interpretación**: La vista en 3D permite observar agrupaciones y patrones que no son evidentes en 2D. Esto es especialmente útil en segmentos complejos como tiendas o clusters de clientes.")
     else:
         st.warning("No hay suficientes datos para la visualización 3D.")
 
 # Tab 5 - Clustering
 with tabs[4]:
     st.subheader("📌 Segmentación con KMeans (Clustering)")
+    st.markdown("Se agrupan observaciones similares en `k` clusters utilizando los componentes PCA.")
     if scaled is not None:
         kmeans = KMeans(n_clusters=n_clusters, n_init="auto", random_state=42).fit(scaled)
         clusters = kmeans.labels_
@@ -100,5 +108,7 @@ with tabs[4]:
         st.markdown("### 🧬 Descripción de Clusters (centroides normalizados)")
         centers = pd.DataFrame(kmeans.cluster_centers_, columns=numeric.columns)
         st.dataframe(centers.round(2))
+
+        st.markdown("> 📌 **Interpretación**: Los grupos revelan patrones como clientes que compran mucho pero gastan poco o viceversa. Estos clusters permiten personalizar estrategias comerciales.")
     else:
         st.warning("No es posible aplicar clustering sin datos numéricos suficientes.")

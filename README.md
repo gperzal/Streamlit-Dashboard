@@ -66,7 +66,8 @@ streamlit run app.py
 │   ├── 2_Graficos_Basicos.py
 │   ├── 3_Graficos_Compuestos.py
 │   ├── 4_PCA_y_3D.py
-│   └── 5_Resumen_Ejecutivo.py
+│   ├── 5_Analisis_Complementarios.py
+│   └── 6_Resumen_Ejecutivo.py
 └── README.md
 ```
 
@@ -78,6 +79,7 @@ streamlit run app.py
 - **📊 Gráficos Básicos:** histogramas, boxplots y dispersión.
 - **📈 Gráficos Compuestos:** evolución de ventas por categoría y sucursal.
 - **🧬 Análisis Multivariado:** PCA 2D/3D, Scree Plot, matriz de correlación y clustering automático.
+- **📊 Análisis Complementarios:** evaluación de calificaciones de clientes, métodos de pago preferidos y composición del ingreso bruto por tienda y línea de producto.
 - **📋 Resumen Ejecutivo:** KPIs clave y recomendaciones generadas automáticamente desde la data.
 
 ---

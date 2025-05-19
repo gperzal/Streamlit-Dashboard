@@ -1,44 +1,51 @@
-
 import streamlit as st
 
 st.set_page_config(page_title="Dashboard Tiendas - Visión Gerencial", layout="wide")
 
 # Encabezado principal
 st.title("📊 Dashboard de Ventas - Visión Ejecutiva")
-st.markdown("Bienvenido al centro de análisis de ventas para nuestra cadena de tiendas de conveniencia.")
+st.markdown("Bienvenido al centro de análisis estratégico de nuestra cadena de tiendas de conveniencia.")
 
-# Imagen ilustrativa
-st.image("https://miro.medium.com/v2/resize:fit:753/1*1sr0IMJEatpy5v5sZtMyXQ.jpeg" , width=800)
+# Imagen representativa
+st.image("https://miro.medium.com/v2/resize:fit:753/1*1sr0IMJEatpy5v5sZtMyXQ.jpeg", width=800)
 
-# Objetivo claro y directo
+# Objetivo ejecutivo
 st.markdown("## 🎯 Objetivo General")
 st.markdown("""
-Este dashboard ha sido diseñado para ofrecerle a usted, como parte del equipo directivo, una visión clara,
-rápida y accionable sobre el comportamiento de las ventas, el rendimiento de las tiendas y las preferencias de los clientes.
+Este dashboard ha sido diseñado para ofrecer a la dirección una **visión clara, rápida y accionable** del comportamiento comercial,
+el rendimiento por tienda y las preferencias del cliente, en base a los datos reales de ventas.
 """)
 
-# Índice guiado para navegación
-st.markdown("## 🗂️ ¿Qué podrá encontrar en este Dashboard?")
+# Índice orientador
+st.markdown("## 🗂️ ¿Qué encontrará en este Dashboard?")
 st.markdown("""
-- **📌 Variables Clave:** Información base del análisis y justificación de los datos considerados críticos.
-- **📊 Gráficos Básicos:** Exploración visual inicial para identificar patrones y diferencias clave.
-- **📈 Gráficos Compuestos:** Comparaciones entre múltiples variables para detectar relaciones complejas.
-- **🧬 Análisis Multivariado y 3D:** Procesamiento avanzado que permite identificar agrupaciones de comportamiento y tendencias ocultas.
-- **📋 Resumen Ejecutivo:** Indicadores clave y gráficos estratégicos para tomar decisiones basadas en evidencia.
+- **📌 Variables Clave:** Revisión inicial y justificación de los datos seleccionados.
+- **📊 Gráficos Básicos:** Exploración simple para comprender la distribución y variabilidad.
+- **📈 Gráficos Compuestos:** Comparaciones y relaciones entre múltiples dimensiones.
+- **🧬 Análisis Multivariado y 3D:** Visualización avanzada y segmentación con técnicas PCA y clustering.
+- **📋 Análisis Complementarios:** Insights sobre calificaciones, pagos y rentabilidad cruzada.
+- **📋 Resumen Ejecutivo:** Conclusiones, indicadores clave y recomendaciones automatizadas.
 """)
 
-# Cómo usarlo
+# Instrucciones de uso
 st.markdown("## 🧭 ¿Cómo utilizar este Dashboard?")
 st.markdown("""
-Navegue por las secciones usando el menú a la izquierda. Cada sección contiene visualizaciones interactivas y explicaciones claras.
-Además, puede personalizar los análisis usando los **filtros disponibles en la barra lateral** (por fechas, tiendas o categorías).
+Utilice el **menú lateral** para navegar por las diferentes secciones.  
+En cada vista encontrará:
+- Gráficos interactivos.
+- Explicaciones ejecutivas.
+- Filtros para ajustar los análisis por fecha, tienda o categoría.
 
-👉 No se requiere conocimiento técnico para interpretar los resultados. Cada gráfico viene acompañado de un análisis breve que lo orientará en la toma de decisiones.
+👉 No necesita conocimientos técnicos: cada insight está acompañado de una breve interpretación para facilitar la toma de decisiones.
 """)
 
-# Cierre motivador
-st.markdown("## ✅ Acción basada en Datos")
+# Cierre estratégico
+st.markdown("## ✅ Toma de Decisiones Basada en Datos")
 st.markdown("""
-Este dashboard es una herramienta de apoyo estratégico. Está diseñado para ayudarle a **detectar oportunidades, identificar problemas
-y optimizar decisiones comerciales** en base a los datos reales de nuestra operación.
+Este dashboard es una herramienta de apoyo a la gestión, diseñada para ayudarle a:
+- **Detectar oportunidades**
+- **Identificar problemas**
+- **Optimizar decisiones comerciales**
+
+Todo esto a partir de información clara, visual y actualizada.
 """)
