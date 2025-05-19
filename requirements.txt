@@ -25,6 +25,7 @@ numpy==2.2.5
 openpyxl==3.1.5
 packaging==24.2
 pandas==2.2.3
+patsy==1.0.1
 pillow==11.2.1
 plotly==6.0.1
 protobuf==6.30.2
@@ -41,6 +42,7 @@ scipy==1.15.3
 seaborn==0.13.2
 six==1.17.0
 smmap==5.0.2
+statsmodels==0.14.4
 streamlit==1.45.1
 tenacity==9.1.2
 threadpoolctl==3.6.0
@@ -50,4 +52,3 @@ typing_extensions==4.13.2
 tzdata==2025.2
 urllib3==2.4.0
 watchdog==6.0.0
-statsmodels=0.14.4
